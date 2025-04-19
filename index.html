@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora GODEL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f9f9;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #007B8A;
+        }
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007B8A;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #007B8A;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://raw.githubusercontent.com/tu-usuario/godel-calculadora/main/logo_godel.png" alt="Logo GODEL" class="logo">
+    <h1>Calculadora de Reciclaje</h1>
+    <div class="container">
+        <label>Cartón (kg):</label><br>
+        <input type="number" id="carton" placeholder="0"><br>
+        <label>Plástico PET (kg):</label><br>
+        <input type="number" id="plastico" placeholder="0"><br>
+        <label>Aluminio (kg):</label><br>
+        <input type="number" id="aluminio" placeholder="0"><br>
+        <button onclick="calcularTotal()">Calcular Total</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            var carton = parseFloat(document.getElementById("carton").value) || 0;
+            var plastico = parseFloat(document.getElementById("plastico").value) || 0;
+            var aluminio = parseFloat(document.getElementById("aluminio").value) || 0;
+
+            var total = (carton * 0.02) + (plastico * 0.03) + (aluminio * 0.25);
+            document.getElementById("resultado").innerText = "Total a recibir: $" + total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
